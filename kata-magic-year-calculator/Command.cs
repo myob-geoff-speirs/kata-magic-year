@@ -12,7 +12,7 @@ namespace MagicYearCalculator
   }
 
   public struct RepromptForName : ICommand{
-    string ICommand.output => "Invlid name. Please input your name:";
+    string ICommand.output => "Invalid name. Please input your name:";
   }
 
   public struct PromptForSurname : ICommand{
@@ -22,6 +22,28 @@ namespace MagicYearCalculator
 
     public PromptForSurname(string name){
       this.name = name;
+    }
+  }
+
+  public struct RepromptForSurname : ICommand{
+    string ICommand.output => "Invalid surname. Please input your surname:";
+
+    public string name {get;}
+
+    public RepromptForSurname(string name){
+      this.name = name;
+    }
+  }
+
+  public struct PromptForAnnualSalary : ICommand{
+    string ICommand.output => "Please enter your annual salary:";
+
+    public string name {get;}
+    public string surname {get;}
+
+    public PromptForAnnualSalary(string name, string surname){
+      this.name = name;
+      this.surname = surname;
     }
   }
 }
